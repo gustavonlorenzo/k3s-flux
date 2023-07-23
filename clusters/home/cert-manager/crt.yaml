@@ -1,0 +1,14 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-crt
+  namespace: default
+spec:
+  secretName: wildcard-crt
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "*.guslabsathome.com"
+  dnsNames:
+  - "*.guslabsathome.com"

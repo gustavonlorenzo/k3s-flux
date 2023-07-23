@@ -1,0 +1,21 @@
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: gustavonlorenzo@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-production
+    solvers:
+      - dns01:
+          cloudflare:
+            email: gustavonlorenzo@gmail.com
+            apiTokenSecretRef:
+              name: cloudflare-api-key-secret
+              key: api-key
+        selector:
+          dnsZones:
+            - "guslabsathome.com"
