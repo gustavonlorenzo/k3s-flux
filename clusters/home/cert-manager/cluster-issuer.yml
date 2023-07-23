@@ -13,7 +13,7 @@ spec:
       - dns01:
           cloudflare:
             email: gustavonlorenzo@gmail.com
-            apiTokenSecretRef:
+            apiKeySecretRef:
               name: cloudflare-api-key-secret
               key: api-key
         selector:
